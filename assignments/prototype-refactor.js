@@ -15,16 +15,15 @@ class GameObject {
   }
 }
 
-
 /*
   === CharacterStats ===
   * healthPoints
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-class CharacterStats {
+class CharacterStats extends GameObject {
   constructor(characterStatsAttr) {
-    GameObject.call(this, characterStatsAttr);
+    super(characterStatsAttr);
     this.healthPoints = characterStatsAttr.healthPoints;
     this.name = characterStatsAttr.name;
   }
@@ -32,8 +31,6 @@ class CharacterStats {
     return `${this.name} took damage.`;
   }
 }
-CharacterStats.prototype = Object.create(GameObject.prototype); 
-
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -44,9 +41,9 @@ CharacterStats.prototype = Object.create(GameObject.prototype);
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-class Humanoid {
+class Humanoid extends CharacterStats {
   constructor(humanoidAttr) {
-    CharacterStats.call(this, humanoidAttr);
+    super(humanoidAttr);
     this.team = humanoidAttr.team;
     this.weapons = humanoidAttr.weapons;
     this.language = humanoidAttr.language;
@@ -55,7 +52,7 @@ class Humanoid {
     return `${this.name} offers a greeting in ${this.language}.`;
   }
 }
- Humanoid.prototype = Object.create(CharacterStats.prototype);
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
