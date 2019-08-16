@@ -21,6 +21,23 @@ class Instructor extends Person {
    console.log(`Today we are learning about ${subject}`);
   }
   grade(student,subject){
-    console.log(`${student.name} receives a perfect score on ${subject}`)
+    console.log(`${student.name} receives a perfect score on ${subject}.`);
+}
+
+class Student extends Person {
+  constructor(studentAttr){
+    super(personAttr);
+    this.previousBackground = studentAttr.previousBackground;
+    this.className = studentAttr.className;
+    this.favSubjects = studentAttr.favSubjects;
   }
+    listsSubjects() {
+      console.log(favoriteSubjects[]);
+    }
+    PRAssignment(subject) {
+     console.log(`${student.name} has submitted a PR for ${subject}.`)
+    }
+    sprintChallenge(subject) {
+      console.log(`${student.name} has begun sprint challenge on ${subject}.`)
+    }
 }
