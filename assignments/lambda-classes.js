@@ -22,8 +22,8 @@ class Instructor extends Person {
   }
   grade(student,subject){
     console.log(`${student.name} receives a perfect score on ${subject}.`);
+  }
 }
-
 class Student extends Person {
   constructor(studentAttr){
     super(personAttr);
@@ -39,5 +39,19 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
       console.log(`${student.name} has begun sprint challenge on ${subject}.`)
+    }
+}
+
+class TeamLead extends Instructor {
+  constructor(teamLeadAttr){
+    super(teamLeadAttr);
+    this.gradClassName= teamLeadAttr.gradClassName;
+    this.favInstructor= teamLeadAttr.favInstructor;
+}
+    standUp() {
+      console.log(`${name} announces to ${channel}, @channel standy times!​​​​​`)
+    }
+    debugsCode() {
+      console.log(`${name} debugs ${student.name}'s code on ${subject}.`)
     }
 }
